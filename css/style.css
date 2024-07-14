@@ -44,8 +44,13 @@
 .workexp_bg{
 	background-color: #000;
 }
+
+.focus-on-it:hover {
+	transform: scale(1.01);
+}
+
 .pop-up {
-	position:absolute;
+	overflow-y: hidden;
 	opacity:0.8;
 	background-color: black;
 	position:fixed;
@@ -69,21 +74,27 @@
   } /* */
   
   .pop-up__content {
-	height:auto;
+	/* height:auto; */
 	width:85%;
 	background-color: #ffffff;
 	border-radius:8px;
-	
 	transform:scale(.2);
 	transition: all .2s;
-	
+	max-height:100%;
+	/* overflow-y: auto; */
 	position:relative;
   }
-  
-  .pop-up:target .pop-up__content {
+  @media (max-width: 767px){.scrollable{
+	max-height: 300px;
+	overflow-y: auto;
+}
+}
+@media (max-width: 767px){.align-middle{
+	text-align: center;
+}}
+.pop-up:target .pop-up__content {
 	transform:scale(1)
   }
-  
   .pop-up__close {
 	position: absolute;
 	top:10px;
